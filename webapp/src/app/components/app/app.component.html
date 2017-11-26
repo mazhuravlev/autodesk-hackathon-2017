@@ -1,0 +1,20 @@
+<div style="position: absolute; left: 270px; top: -5px; z-index:10000; min-width: 300px;">
+<mat-form-field>
+  <input matInput [value]="sessionUrl" style="min-width: 655px;">
+</mat-form-field>
+</div>
+<app-viewer></app-viewer>
+<button class="menu-button" mat-button [matMenuTriggerFor]="menu"><i class="material-icons">menu</i></button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="roles">Роли</button>
+  <a mat-menu-item href="/assets/brandbook.pdf">Скачать брендбук</a>
+  <button mat-menu-item (click)="logout()"><mat-icon>exit_to_app</mat-icon>Новая сессия</button>
+</mat-menu>
+<mat-menu #roles="matMenu">
+  <button mat-menu-item routerLink="/customer">Заказчик</button>
+  <button mat-menu-item routerLink="/foreman">Прораб</button>
+  <button mat-menu-item routerLink="/factory">Склад</button>
+  <button mat-menu-item routerLink="/craneman">Кран</button>
+</mat-menu>
+
+<router-outlet></router-outlet>

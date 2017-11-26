@@ -1,0 +1,48 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../node_modules/ng2-toastr/bundles/ng2-toastr.min.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+$menuHeight: 100px;
+.container {
+  padding: 16px;
+  height: -webkit-calc(100vh - #{$menuHeight});
+  height: -moz-calc(100vh - #{$menuHeight});
+  height: calc(100vh - #{$menuHeight});
+}
+
+.mat-snack-bar-container.success {
+  background: rgba(0, 162, 6, 0.6);
+}
+
+.mat-snack-bar-container.error {
+  background: rgba(255, 0, 0, 0.6);
+}
+
+.mat-snack-bar-container {
+  background: rgba(30, 30, 30, 0.6);
+}
+
+.window img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+.activeRole {
+  position: fixed;
+  left: 70px;
+  top: -15px;
+
+}

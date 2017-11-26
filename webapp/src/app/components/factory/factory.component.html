@@ -1,0 +1,31 @@
+<h1 class="activeRole">Склад</h1>
+
+<app-window title="Склад">
+  <div *ngIf="!orders" style="padding: 8px;">
+    Загрузка..
+  </div>
+  <div *ngIf="orders" style="padding: 8px;">
+    <div *ngIf="orders.length < 1" style="padding: 8px;">
+      Нет заказов
+    </div>
+  <mat-list>
+    <mat-list-item *ngFor="let order of orders; let i = index" (click)="selectOrder(order)">
+      <button mat-button>Заказ №{{i+1}}, панелей: {{order.panels.length}}</button>
+    </mat-list-item>
+  </mat-list>
+  </div>
+</app-window>
+
+<app-window title="Заказ">
+  <div *ngIf="!selectedOrder" style="padding: 8px;">
+    Выберите заказ
+  </div>
+  <div *ngIf="selectedOrder">
+  <mat-list>
+    <mat-list-item *ngFor="let panel of selectedOrder.panels" (click)="selectPanel(panel)">
+      <button mat-button>{{panel.name}}</button>
+    </mat-list-item>
+  </mat-list>
+    <button mat-button mat-raised-button color="primary" type="button" (click)="shipOrder(selectedOrder)">На монтаж</button>
+  </div>
+</app-window>

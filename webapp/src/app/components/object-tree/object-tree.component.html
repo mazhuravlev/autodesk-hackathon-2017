@@ -1,0 +1,61 @@
+<mat-card>
+  <div *ngIf="!levels"  style="padding: 8px;">
+    Загрузка..
+  </div>
+  <form [formGroup]="form" novalidate *ngIf="levels">
+    <mat-form-field>
+      <mat-select placeholder="Этажи" formControlName="level" (change)="onLevelChange($event)">
+        <mat-option *ngFor="let level of getLevels()" [value]="level"> {{ level }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button (click)="onSend()">Отправить</button>
+
+    <!--<mat-list>-->
+      <!--<mat-list-item *ngFor="let panel of checkedPanels">{{panel.name}} - {{panel.forgeId}}-->
+      <!--</mat-list-item>-->
+    <!--</mat-list>-->
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Стены
+          </mat-panel-title>
+          <!--<mat-panel-description>-->
+            <!--<mat-checkbox (change)="onSelecAllPanels($event)">Выделить все</mat-checkbox>-->
+
+          <!--</mat-panel-description>-->
+        </mat-expansion-panel-header>
+        <div class="scrollList">
+          <mat-list>
+            <mat-list-item *ngFor="let panel of getPanels()">
+              <div><mat-checkbox (change)="onPanelClick($event, panel.forgeId)"></mat-checkbox></div>
+              <div>{{panel.name}} - {{panel.type}}</div>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Перекрытия
+          </mat-panel-title>
+          <!--<mat-panel-description>-->
+            <!--&lt;!&ndash;<mat-checkbox (change)="onSelecAllPanels($event)">Выделить все</mat-checkbox>&ndash;&gt;-->
+            <!--&lt;!&ndash;<button mat-button (click)="onSend()">Отправить</button>&ndash;&gt;-->
+          <!--</mat-panel-description>-->
+        </mat-expansion-panel-header>
+        <div class="scrollList">
+          <mat-list>
+            <mat-list-item *ngFor="let panel of getFloors()">
+              <div><mat-checkbox (change)="onPanelClick($event, panel.forgeId)"></mat-checkbox></div>
+              <div>{{panel.name}} - {{panel.type}}</div>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+  </form>
+</mat-card>

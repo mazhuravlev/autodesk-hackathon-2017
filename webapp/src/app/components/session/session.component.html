@@ -1,0 +1,16 @@
+<app-window title="Инициализация">
+  <div style="padding: 8px; max-width: 250px;">
+    <div *ngIf="!isUploading"  style="padding: 8px;">
+      При первом использовании надо загрузить данные модели на сервер.
+      Сейчас происходит анализ данных, это может занять некоторое время.
+      Дождитесь активации кнопки и загрузите данные.
+    </div>
+    <button mat-button mat-raised-button color="primary" (click)="uploadPanels()"
+            [disabled]="!model" *ngIf="!isUploading">Загрузить данные
+    </button>
+    <div *ngIf="isUploading">
+      <h3>Идет загрузка..</h3>
+      <img src="assets/tenor.gif" width="250">
+    </div>
+  </div>
+</app-window>

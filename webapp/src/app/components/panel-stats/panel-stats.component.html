@@ -1,0 +1,9 @@
+<div *ngIf="!panels">
+  Панели не получены
+</div>
+<div *ngIf="panels">
+  <mat-list>
+    <mat-list-item>Всего: {{stats().total}}</mat-list-item>
+    <mat-list-item>Смонтировано: {{stats().mounted}}</mat-list-item>
+  </mat-list>
+</div>
