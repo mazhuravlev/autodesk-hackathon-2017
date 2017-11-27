@@ -1,6 +1,8 @@
-Forge Angular App
+Live demo: http://hackathonpcm.azurewebsites.net
+Video: https://youtu.be/6rZuKoMYv58
+
+Build with
 ===========
-Starter template for an Autodesk Forge application:
  - Angular 5
  - ASP.NET Core 2 MVC 
 
